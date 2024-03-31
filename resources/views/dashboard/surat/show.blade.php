@@ -1,18 +1,48 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-<div class="row">
-    <div class="col-lg-8">
-        <h2>{{ $surat->jenis_surat }}</h2>
-        <p><strong>Nama:</strong> {{ $surat->nama }}</p>
-        <p><strong>NIK:</strong> {{ $surat->NIK }}</p>
-        <p><strong>Tempat Lahir:</strong> {{ $surat->tempat_lahir }}</p>
-        <p><strong>Tanggal Lahir:</strong> {{ $surat->tanggal_lahir }}</p>
-        <p><strong>Jenis Kelamin:</strong> {{ $surat->jenis_kelamin }}</p>
-        <p><strong>Pekerjaan:</strong> {{ $surat->pekerjaan }}</p>
-        <p><strong>Agama:</strong> {{ $surat->agama }}</p>
-        <p><strong>Alamat:</strong> {{ $surat->alamat }}</p>
-        <p><strong>Telepon:</strong> {{ $surat->telepon }}</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    {{ $surat->jenis_surat }}
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <strong class="label">Informasi Tambahan Surat:</strong> {{ $surat->informasi }}
+                    </div>
+                    <div class="mb-3">
+                        <strong class="label">Nama:</strong> {{ $surat->nama }}
+                    </div>
+                    <div class="mb-3">
+                        <strong class="label">NIK:</strong> {{ $surat->NIK }}
+                    </div>
+                    <div class="mb-3">
+                        <strong class="label">Tempat Lahir:</strong> {{ $surat->tempat_lahir }}
+                    </div>
+                    <div class="mb-3">
+                        <strong class="label">Tanggal Lahir:</strong> {{ $surat->tanggal_lahir }}
+                    </div>
+                    <div class="mb-3">
+                        <strong class="label">Jenis Kelamin:</strong> {{ $surat->jenis_kelamin }}
+                    </div>
+                    <div class="mb-3">
+                        <strong class="label">Pekerjaan:</strong> {{ $surat->pekerjaan }}
+                    </div>
+                    <div class="mb-3">
+                        <strong class="label">Agama:</strong> {{ $surat->agama }}
+                    </div>
+                    <div class="mb-3">
+                        <strong class="label">Alamat:</strong> {{ $surat->alamat }}
+                    </div>
+                    <div class="mb-3">
+                        <strong class="label">Telepon:</strong> {{ $surat->telepon }}
+                    </div>
+                </div>
+            </div>
+            <a href="{{ url()->previous() }}" class="btn btn-primary mt-3">Back</a>
+        </div>
     </div>
 </div>
 @endsection

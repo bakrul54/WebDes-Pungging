@@ -26,8 +26,6 @@
           <li class="nav-item">
             <a class="nav-link {{ ($title === "Layanan") ? 'active' : '' }}" href="/layanan">Layanan</a>
           </li>
-
-
           <li class="nav-item">
             @auth
             <li class="nav-item dropdown">
@@ -49,8 +47,6 @@
             <a class="nav-link {{ ($title === "Login") ? 'active' : '' }}" href="/login"><i class="bi bi-box-arrow-in-right"></i>Login </a>
             @endauth
           </li> 
-          
-          
         </ul>
       </div>
     </div>

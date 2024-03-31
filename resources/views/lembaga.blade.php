@@ -1,77 +1,150 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1>Lembaga Masyarakat</h1>
+<div class="container mt-4">
+    <h1 class="text-center">Lembaga Masyarakat</h1>
 
-    <div class="row -bg-primary">
-        <div class="col-sm-8">
-            <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB4DJF-Tzzh1AWhK0wQbP9yJbfoY_VxyME&amp;q=Desa+Kertamulya%2CPadalarang%2CBandung+Barat%2CJawa+Barat%2C" width="100%" height="300" frameborder="0" style="border:0;x-pointer-events:none;" allowfullscreen=""></iframe>
-        </div>
-        <div class="col-sm-4 pt-xxl -hidden-xs">
-            <div class="container" style="width:100%;">
-                <div class="table-responsive">
-                    <table class="table -table-striped table-preview">
+    <div>
+        <div class="atas-ly">
+            <h2 class="">Badan Usaha Milik Desa</h2>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="img-container">
+                        <img src="https://kertamulya-padalarang.desa.id/themes/default/assets/images/no-photo.png" class="img-responsive">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <table class="table">
                         <tbody>
                             <tr>
-                                <th width="40%" nowrap="">Kode PUM</th>
-                                <td width="1px">:</td>
-                                <td>3217082001</td>
+                                <th width="20%" nowrap="" class="b-none">Nama Lembaga</th>
+                                <td width="1px" class="b-none">:</td>
+                                <td class="b-none">BADAN USAHA MILIK DESA</td>
                             </tr>
                             <tr>
-                                <th width="40%" nowrap="">Tahun Pembentukan</th>
-                                <td width="1px">:</td>
-                                <td>1966</td>
+                                <th>Singkatan</th>
+                                <td>:</td>
+                                <td>BUMDES</td>
                             </tr>
                             <tr>
-                                <th width="40%" nowrap="">Dasar Hukum</th>
-                                <td width="1px">:</td>
-                                <td nowrap="">141.1/KEP.18-PEM/1966</td>
+                                <th>Dasar Hukum / SK Pembentukan</th>
+                                <td>:</td>
+                                <td></td>
                             </tr>
                             <tr>
-                                <th width="40%" nowrap="">Tipologi</th>
-                                <td width="1px">:</td>
-                                <td>PERINDUSTRIAN/JASA</td>
-                            </tr>
-                            <tr>
-                                <th width="40%" nowrap="">Klasifikasi</th>
-                                <td width="1px">:</td>
-                                <td>SWAKARYA</td>
-                            </tr>
-                            <tr>
-                                <th width="40%" nowrap="">Kategori</th>
-                                <td width="1px">:</td>
-                                <td nowrap="">MULA</td>
-                            </tr>
-                            <tr>
-                                <th width="40%" nowrap="">Luas Wilayah</th>
-                                <td width="1px">:</td>
-                                <td nowrap="">305.28 ha</td>
-                            </tr>
-                            <tr>
-                                <th width="40%" nowrap="">Batas Sebelah Utara</th>
-                                <td width="1px">:</td>
-                                <td nowrap="">Desa Utara</td>
-                            </tr>
-                            <tr>
-                                <th width="40%" nowrap="">Batas Sebelah Selatan</th>
-                                <td width="1px">:</td>
-                                <td nowrap="">Desa Selatan</td>
-                            </tr>
-                            <tr>
-                                <th width="40%" nowrap="">Batas Sebelah Timur</th>
-                                <td width="1px">:</td>
-                                <td nowrap="">Desa Timur</td>
-                            </tr>
-                            <tr>
-                                <th width="40%" nowrap="">Batas Sebelah Barat</th>
-                                <td width="1px">:</td>
-                                <td nowrap="">Desa Barat</td>
+                                <th nowrap="" class="b-bottom">Alamat Kantor</th>
+                                <td class="b-bottom">:</td>
+                                <td class="b-bottom">Jl. Raya Pungging No.27, Kabupaten Mojokerto, Jawa Timur, 61384</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        
+        <div class="card">
+            <div class="card-header">
+            Profil BUMDES
+            </div>
+            <div class="card-body">
+            <p class="card-text">Setiap desa memiliki potensi. Tentu, potensi ini tidak terlepas dari potensi sumberdaya manusia. Keberadaan potensi sumberdaya manusia dapat difungsikan dalam kepentingan pembangunan desa, salah satunya pengelolaan Badan Usaha Milik Desa (BUMDes). Sumberdaya yang menduduki manajemen BUMDes dengan kemampuan serta kapasitas mumpuni diharapkan mampu mengembangkan serta menggerakkan perekonomian desa.</p>
+            <p>Adapun kewajiban pelaksana operasional secara umum kelembagaan BUMDes adalah:</p>
+            <ul>
+            <li>Menjalankan kegiatan operasional BUMDes.</li>
+            <li>Mematuhi Anggaran Dasar, Anggaran Rumah Tangga dan peraturan perundang undangan yang berlaku serta wajib melaksanakan prinsip-prinsip profesionalisme, efisiensi, transparansi, kemandirian, akuntabilitas, dan kewajaran.</li>
+            <li>Memberikan laporan tahunan kepada Lurah Desa tentang  keadaan serta perkembangan BUMDes dan usaha-usahanya serta keuangan yang meliputi hasil usaha dan laporan perubahan kekayaan BUMDes.</li>
+            </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+            Visi dan Misi
+            </div>
+            <div class="card-body">
+                <h5 class="card-title strong">Visi</h5>
+                <p class="card-text">Setiap desa memiliki potensi. Tentu, potensi ini tidak terlepas dari potensi sumberdaya manusia. Keberadaan potensi sumberdaya manusia dapat difungsikan dalam kepentingan pembangunan desa, salah satunya pengelolaan Badan Usaha Milik Desa (BUMDes). Sumberdaya yang menduduki manajemen BUMDes dengan kemampuan serta kapasitas mumpuni diharapkan mampu mengembangkan serta menggerakkan perekonomian desa.</p>
+                <p>Adapun kewajiban pelaksana operasional secara umum kelembagaan BUMDes adalah:</p>
+                
+                <h5 class="card-title strong">Misi</h5>
+                <p class="card-text">Setiap desa memiliki potensi. Tentu, potensi ini tidak terlepas dari potensi sumberdaya manusia. Keberadaan potensi sumberdaya manusia dapat difungsikan dalam kepentingan pembangunan desa, salah satunya pengelolaan Badan Usaha Milik Desa (BUMDes). Sumberdaya yang menduduki manajemen BUMDes dengan kemampuan serta kapasitas mumpuni diharapkan mampu mengembangkan serta menggerakkan perekonomian desa.</p>
+                <p>Adapun kewajiban pelaksana operasional secara umum kelembagaan BUMDes adalah:</p>
+                </ul>
+            </div>
+        </div>
     </div>
+
+    {{-- Divider --}}
+    <hr>
     
+    <div>
+        <div class="atas-ly">
+            <h2 class="">Karang Taruna</h2>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="img-container">
+                        <img src="https://kertamulya-padalarang.desa.id/themes/default/assets/images/no-photo.png" class="img-responsive">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th width="20%" nowrap="" class="b-none">Nama Lembaga</th>
+                                <td width="1px" class="b-none">:</td>
+                                <td class="b-none">Karang Taruna</td>
+                            </tr>
+                            <tr>
+                                <th>Singkatan</th>
+                                <td>:</td>
+                                <td>Kartar</td>
+                            </tr>
+                            <tr>
+                                <th>Dasar Hukum / SK Pembentukan</th>
+                                <td>:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th nowrap="" class="b-bottom">Alamat Kantor</th>
+                                <td class="b-bottom">:</td>
+                                <td class="b-bottom">Jl. Raya Pungging No.27, Kabupaten Mojokerto, Jawa Timur, 61384</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+            Profil BUMDES
+            </div>
+            <div class="card-body">
+            <p class="card-text">Setiap desa memiliki potensi. Tentu, potensi ini tidak terlepas dari potensi sumberdaya manusia. Keberadaan potensi sumberdaya manusia dapat difungsikan dalam kepentingan pembangunan desa, salah satunya pengelolaan Badan Usaha Milik Desa (BUMDes). Sumberdaya yang menduduki manajemen BUMDes dengan kemampuan serta kapasitas mumpuni diharapkan mampu mengembangkan serta menggerakkan perekonomian desa.</p>
+            <p>Adapun kewajiban pelaksana operasional secara umum kelembagaan BUMDes adalah:</p>
+            <ul>
+            <li>Menjalankan kegiatan operasional BUMDes.</li>
+            <li>Mematuhi Anggaran Dasar, Anggaran Rumah Tangga dan peraturan perundang undangan yang berlaku serta wajib melaksanakan prinsip-prinsip profesionalisme, efisiensi, transparansi, kemandirian, akuntabilitas, dan kewajaran.</li>
+            <li>Memberikan laporan tahunan kepada Lurah Desa tentang  keadaan serta perkembangan BUMDes dan usaha-usahanya serta keuangan yang meliputi hasil usaha dan laporan perubahan kekayaan BUMDes.</li>
+            </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+            Visi dan Misi
+            </div>
+            <div class="card-body">
+                <h5 class="card-title strong">Visi</h5>
+                <p class="card-text">Setiap desa memiliki potensi.</p>
+                
+                <h5 class="card-title strong">Misi</h5>
+                <p class="card-text">Setiap desa memiliki potensi.</p>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
 @endsection

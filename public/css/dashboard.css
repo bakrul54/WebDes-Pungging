@@ -46,3 +46,20 @@
 .navbar .form-control {
   padding: .75rem 1rem;
 }
+
+
+/* Container Section */
+.label {
+  display: inline-block;
+  width: 120px;
+}
+
+.card {
+  margin: 30px;
+}
+
+.card-header {
+  background-color: #343a40; 
+  color: #fff;
+  padding: 10px;
+}

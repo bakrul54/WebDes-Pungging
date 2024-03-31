@@ -41,6 +41,7 @@ class SuratController extends Controller
     {
         $validatedData = $request->validate([
             'jenis_surat' => 'required',
+            'informasi' => 'required',
             'nama' => 'required',
             'NIK' => 'required|string|max:20',
             'tempat_lahir' => 'required',

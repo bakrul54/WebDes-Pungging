@@ -19,22 +19,22 @@
     <tbody>
       @foreach ($surats as $surat)
       <tr>
-        <td>{{ $loop->iteration }}</td>
-        <td>{{ $surat->nama }}</td>
-        <td>{{ $surat->jenis_surat }}</td>
-        <td>{{ $surat->telepon }}</td>
-        <td>
-          <a href="#" class="badge bg-info" onclick="event.preventDefault(); document.getElementById('show-surat-form').submit();"><span data-feather="eye"></span></a>
-<form id="show-surat-form" action="{{ route('dashboard.surat.show', $surat->id) }}" method="GET" style="display: none;">
-    @csrf
-</form>
+          <td>{{ $loop->iteration }}</td>
+          <td>{{ $surat->nama }}</td>
+          <td>{{ $surat->jenis_surat }}</td>
+          <td>{{ $surat->telepon }}</td>
+          <td>
+              <a href="#" class="badge bg-info" onclick="event.preventDefault(); document.getElementById('show-surat-form-{{ $surat->id }}').submit();"><span data-feather="eye"></span></a>
+              <form id="show-surat-form-{{ $surat->id }}" action="{{ route('dashboard.surat.show', $surat->id) }}" method="GET" style="display: none;">
+                  @csrf
+              </form>
 
-          <a href="{{ route('dashboard.surat.destroy', $surat->id) }}" class="badge bg-danger" onclick="event.preventDefault(); document.getElementById('delete-surat-form-{{ $surat->id }}').submit();"><span data-feather="x-circle"></span></a>
-          <form id="delete-surat-form-{{ $surat->id }}" action="{{ route('dashboard.surat.destroy', $surat->id) }}" method="POST" style="display: none;">
-            @csrf
-            @method('DELETE')
-          </form>
-        </td>
+              <a href="{{ route('dashboard.surat.destroy', $surat->id) }}" class="badge bg-danger" onclick="event.preventDefault(); document.getElementById('delete-surat-form-{{ $surat->id }}').submit();"><span data-feather="x-circle"></span></a>
+              <form id="delete-surat-form-{{ $surat->id }}" action="{{ route('dashboard.surat.destroy', $surat->id) }}" method="POST" style="display: none;">
+                  @csrf
+                  @method('DELETE')
+              </form>
+          </td>
       </tr>
       @endforeach
     </tbody>
