@@ -15,10 +15,10 @@
                 <div class="row">
                     <div class="col-md-2 col-sm-2">
                         <div class="card">
-                            <img src="https://kertamulya-padalarang.desa.id/assets/files/data/website-desa-kertamulya-3217082001/pegawai/unnamed.jpg" class="card-img-top" alt="Kades Kertamulya">
+                            <img src="/gambar/300.jpg" class="card-img-top" alt="Kades Pungging">
                             <div class="card-body">
-                                <h5 class="card-title text-center">Kades Kertamulya</h5>
-                                <p class="card-text text-center" style="font-size: 8pt;">KEPALA DESA</p>
+                                <h5 class="card-title text-center">Kades Pungging</h5>
+                                <p class="card-text text-center" style="font-size: 8pt;">BAKRUL</p>
                             </div>
                         </div>
                     </div>

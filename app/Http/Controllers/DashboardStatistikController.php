@@ -8,6 +8,8 @@ class DashboardStatistikController extends Controller
 {
     public function index()
     {
-        return view('dashboard.statistik.index');
+        return view('dashboard.statistik.index', [
+            'title' => 'statistik'
+        ]);
     }
 }

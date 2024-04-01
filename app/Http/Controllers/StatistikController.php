@@ -15,10 +15,20 @@ class StatistikController extends Controller
     //     dd('index');
     // }
 
-    public function index()
+    // public function index()
+    // {
+    //     return view('/statistik');
+    // }
+
+    public function showChart()
     {
-        return view('/statistik');
+        $statistics = Statistik::all();
+        $labels = $statistics->pluck('dusun');
+        $data = $statistics->pluck('jumlah');
+        $title = "Statistik"; // Menambahkan variabel title dengan isi "Statistik"
+        return view('statistik', compact('title', 'labels', 'data'));
     }
+
 
     // public function index()
     // {
@@ -39,29 +49,8 @@ class StatistikController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'jenis_surat' => 'required',
-            'nama' => 'required',
-            'NIK' => 'required|string|max:20',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required|date',
-            'jenis_kelamin' => 'required',
-            'pekerjaan' => 'required',
-            'agama' => 'required',
-            'alamat' => 'required',
-            'telepon' => 'required|string|max:20',
-        ]);
-
-        Surat::create($validatedData);
-
-        return redirect()->route('layanan.input-surat')->with('success', 'Surat berhasil disimpan!');
+        dd ('store');
     }
-
-    // public function show(): Response
-    // {
-    //     $title = 'layanan';
-    //     return response()->view('layanan', compact('title'));
-    // }
 
     public function edit(string $id): Response
     {
@@ -73,15 +62,4 @@ class StatistikController extends Controller
         dd('update');
     }
 
-    public function destroy($id)
-    {
-        $surat = Surat::findOrFail($id);
-        $surat->delete();
-        return redirect()->route('dashboard.surat.index')->with('success', 'Surat berhasil dihapus');
-    }
-
-    // public function destroy(string $id): RedirectResponse
-    // {
-    //     dd('store');
-    // }
 }

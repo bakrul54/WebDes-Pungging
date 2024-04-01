@@ -26,6 +26,7 @@
           <li class="nav-item">
             <a class="nav-link {{ ($title === "Layanan") ? 'active' : '' }}" href="/layanan">Layanan</a>
           </li>
+
           <li class="nav-item">
             @auth
             <li class="nav-item dropdown">
