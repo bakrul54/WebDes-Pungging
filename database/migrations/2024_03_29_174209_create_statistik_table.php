@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('statistiks', function (Blueprint $table) {
             $table->id();
             $table->string('dusun');
-            $table->integer('jumlah');
+            $table->integer('jumlah_laki');
+            $table->integer('jumlah_perempuan');
             $table->timestamps();
         });
     }

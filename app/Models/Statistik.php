@@ -10,7 +10,7 @@ class Statistik extends Model
     use HasFactory;
     
     protected $fillable = [
-        'dusun',
+        'pendidikan',
         'jumlah'
     ];
 }

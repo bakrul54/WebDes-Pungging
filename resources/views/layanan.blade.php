@@ -2,11 +2,12 @@
 
 <style>
     h1 {
-        font-size: 36px; 
-        font-weight: bold; 
+        font-size: 36px;
+        font-weight: bold;
         padding-bottom: 25px;
     }
-/* 
+
+    /* 
     .container-sm {
     margin: 0 auto; 
     max-width: 500px; 
@@ -14,11 +15,11 @@
     } */
 
     .form-label {
-        font-weight: bold; 
+        font-weight: bold;
     }
 
     .btn-primary {
-        margin-bottom: 50px; 
+        margin-bottom: 50px;
     }
 </style>
 
@@ -26,11 +27,11 @@
 <div class="container mt-4">
     <h1>Form Permintaan Surat</h1>
     <div class="container-sm">
-    <form action="/layanan" method="POST">
-        @csrf
+        <form action="/layanan" method="POST">
+            @csrf
             <div class="mb-3">
                 <label for="jenis_surat" class="form-label">Jenis Surat:</label>
-                <select class="form-select" name="jenis_surat" id="jenis_surat">
+                <select class="form-select" name="jenis_surat" id="jenis_surat" required>
                     <option value="Surat Kematian">Surat Kematian</option>
                     <option value="Surat Keterangan Kurang Mampu">Surat Keterangan Kurang Mampu</option>
                     <option value="Surat Keterangan Domisili">Surat Keterangan Domisili</option>
@@ -41,6 +42,10 @@
             <div class="mb-3">
                 <label for="informasi" class="form-label">Informasi Tambahan Surat :</label>
                 <textarea class="form-control" id="informasi" name="informasi" rows="5" placeholder="Contoh : Meninggal tanggal 10/03/2024" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama:</label>
@@ -71,7 +76,7 @@
             </div>
             <div class="mb-3">
                 <label for="agama" class="form-label">Agama:</label>
-                <select class="form-select" name="agama" id="agama">
+                <select class="form-select" name="agama" id="agama" required>
                     <option value="Islam">Islam</option>
                     <option value="Kristen">Kristen</option>
                     <option value="Katolik">Katolik</option>
@@ -91,5 +96,28 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+
+    <!-- Modal -->
+    @if(isset($error) || isset($status))
+    <div id="myModal" class="modal d-block" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <!-- konten modal-->
+            <div class="modal-content">
+                <!-- heading modal -->
+                <div class="modal-header text-center">
+                    <h4 class="modal-title"></h4>
+                </div>
+                <!-- body modal -->
+                <div class="modal-body text-center">
+                    <h3>Surat gagal dikirim!</h3>
+                </div>
+                <!-- footer modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
 </div>
 @endsection

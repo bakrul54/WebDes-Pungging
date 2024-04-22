@@ -12,6 +12,7 @@ class Surat extends Model
     protected $fillable = [
         'jenis_surat',
         'informasi',
+        'email',
         'nama',
         'NIK',
         'tempat_lahir',
@@ -21,5 +22,16 @@ class Surat extends Model
         'agama',
         'alamat',
         'telepon',
+        'status'
     ];
+
+    // Default status saat membuat surat baru
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($surat) {
+            $surat->status = 'Belum Selesai';
+        });
+    }
 }

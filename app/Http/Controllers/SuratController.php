@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
 use App\Models\Surat;
 
 class SuratController extends Controller
@@ -42,6 +43,7 @@ class SuratController extends Controller
         $validatedData = $request->validate([
             'jenis_surat' => 'required',
             'informasi' => 'required',
+            'email' => 'required',
             'nama' => 'required',
             'NIK' => 'required|string|max:20',
             'tempat_lahir' => 'required',
@@ -55,7 +57,7 @@ class SuratController extends Controller
 
         Surat::create($validatedData);
 
-        return redirect()->route('layanan.input-surat')->with('success', 'Surat berhasil disimpan!');
+        return redirect()->route('layanan.input-surat')->with('status', 'success');
     }
 
     // public function show(): Response
@@ -85,4 +87,42 @@ class SuratController extends Controller
     // {
     //     dd('store');
     // }
+
+
+    public function uploadFile(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'file' => 'required|mimes:pdf|max:2048', // PDF, maksimal 2MB
+        ]);
+
+        if ($request->hasFile('file')) {
+            // Proses file yang diunggah (jika diperlukan)
+            $filePath = $request->file('file')->store('pdfs', 'public'); // Simpan di folder 'pdfs' di dalam folder 'storage/app/public'
+            
+            // Simpan lokasi file di session
+            $request->session()->put('file_path', $filePath);
+        }
+
+        return redirect()->back()->with('message', 'File berhasil diunggah.');
+    }
+
+    public function kirimEmail($id)
+    {
+        // Dapatkan data surat dan lokasi file dari session
+        $surat = Surat::findOrFail($id);
+        $filePath = session('file_path');
+
+        // Kirim email dengan attachment
+        Mail::to($surat->email)
+            ->send(new SendEmail($surat, $filePath));
+
+        // Ubah status surat menjadi "Selesai"
+        $surat->status = 'Selesai';
+        $surat->save();
+        // Hapus session setelah email dikirim
+        session()->forget('file_path');
+
+        return redirect()->back()->with('message', 'Email berhasil dikirim.');
+    }
+
 }

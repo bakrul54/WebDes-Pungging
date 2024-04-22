@@ -9,16 +9,22 @@ use App\Models\Statistik;
 
 class StatistikController extends Controller
 {
-    public function index()
+
+    // public function index(): Response
+    // {
+    //     dd('index');
+    // }
+    
+    public function showChart()
     {
         $statistiks = Statistik::all();
-        $title = 'Data Statistik';
-        return view('statistik', compact('statistiks', 'title'));
+        $labels = $statistiks->pluck('pendidikan');
+        $data = $statistiks->pluck('jumlah');
+        $title = "Statistik"; // Menambahkan variabel title dengan isi "Statistik"
+        return view('statistik', compact('title', 'labels', 'data'));
     }
 
-
-
-    public function dashboardIndex()
+    public function index()
     {
         $statistiks = Statistik::all();
         return view('dashboard.statistik.index', [
@@ -55,7 +61,7 @@ class StatistikController extends Controller
         ]);
 
         // Redirect ke halaman yang sesuai dengan kebutuhan aplikasi Anda
-        return redirect()->route('dashboard.statistik.index')->with('success', 'Data statistik berhasil diperbarui.');
+        return redirect()->route('dashboard.statistik')->with('success', 'Data statistik berhasil diperbarui.');
     }
 
     // public function index()

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SuratController;
 use App\Http\Controllers\DashboardController;
@@ -17,57 +19,11 @@ use App\Http\Controllers\StatistikController;
 |
 */
 
-
-
+Route::resource('posts', PostController::class);
 
 Route::get('/', function () {
-    $blog_posts = [
-        [
-            "title" => "Judul Pertama",
-            "slug" => "judul-pertama",
-            "author" => "Bakrul",
-            "body" => "AidfawHJLdfjailwjdlwjaldjwlajdljawlfjflawjjfwl"
-        ],
-        [
-            "title" => "Judul Kedua",
-            "slug" => "judul-kedua",
-            "author" => "Pler",
-            "body" => "AidfawHJLdfjailwjdlwjaldjwlajdljawlfjflawjjfwl"
-        ],
-    ];
-
-    return view('posts', [
-        "title" => "Desa Pungging",
-        "posts" => $blog_posts
-    ]);
-});
-
-Route::get('posts/{slug}', function ($slug) {
-    $blog_posts = [
-        [
-            "title" => "Judul Pertama",
-            "slug" => "judul-pertama",
-            "author" => "Bakrul",
-            "body" => "AidfawHJLdfjailwjdlwjaldjwlajdljawlfjflawjjfwl"
-        ],
-        [
-            "title" => "Judul Kedua",
-            "slug" => "judul-kedua",
-            "author" => "Pler",
-            "body" => "AidfawHJLdfjailwjdlwjaldjwlajdljawlfjflawjjfwl"
-        ],
-    ];
-
-    $new_post = null;
-    foreach ($blog_posts as $post) {
-        if ($post["slug"] === $slug) {
-            $new_post = $post;
-        }
-    }
-
-    return view('post', [
-        "title" => "Single Post",
-        "post" => $new_post
+    return view('home', [
+        "title" => "Desa Pungging"
     ]);
 });
 
@@ -77,11 +33,11 @@ Route::get('/profil', function () {
     ]);
 });
 
-Route::get('/statistik', function () {
-    return view('statistik', [
-        "title" => "Data Statistik"
-    ]);
-});
+// Route::get('/statistik', function () {
+//     return view('statistik', [
+//         "title" => "Data Statistik"
+//     ]);
+// });
 
 Route::get('/struktur-organisasi', function () {
     return view('struktur', [
@@ -110,19 +66,30 @@ Route::post('/logout', [LoginController::class,  'logout']);
 // })->middleware('auth');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
-Route::resource('/dashboard/statistik', DashboardStatistikController::class)->middleware('auth');
+Route::get('/statistik', [StatistikController::class, 'index']);
+Route::resource('/dashboard/statistik', StatistikController::class)->middleware('auth');
 
 Route::resource('/dashboard/surat', SuratController::class)->middleware('auth');
-Route::get('/dashboard/surat/{id}', [SuratController::class, 'show'])->name('dashboard.surat.show');
-Route::get('/dashboard/surat', [SuratController::class, 'index'])->name('dashboard.surat.index');
-Route::delete('/dashboard/surat/{id}', [SuratController::class, 'destroy'])->name('dashboard.surat.destroy');
+Route::get('/dashboard/surat/{id}', [SuratController::class, 'show'])->name('dashboard.surat.show')->middleware('auth');
+Route::get('/dashboard/surat', [SuratController::class, 'index'])->name('dashboard.surat.index')->middleware('auth');
+Route::delete('/dashboard/surat/{id}', [SuratController::class, 'destroy'])->name('dashboard.surat.destroy')->middleware('auth');
 
 
 Route::get('/layanan', [SuratController::class, 'show'])->name('layanan');
 Route::get('/layanan', [SuratController::class, 'showInputForm'])->name('layanan.input-surat');
 Route::post('/layanan', [SuratController::class, 'store'])->name('layanan.store');
 
-Route::get('/statistik', [StatistikController::class, 'showChart'])->name('statistik');
+
+Route::get('/dashboard/statistik', [StatistikController::class, 'dashboardIndex'])->name('dashboard.statistik.index')->middleware('auth');
+Route::get('/dashboard/statistik/{id}/edit', [StatistikController::class, 'edit'])->name('dashboard.statistik.edit')->middleware('auth');
+Route::put('/dashboard/statistik/{id}', [StatistikController::class, 'update'])->name('dashboard.statistik.update')->middleware('auth');
 
 // Route::get('/layanan', [SuratController::class, 'layanan'])->name('layanan')->middleware('guest');
 // Route::resource('/dashboard/surat', SuratController::class)->middleware('auth');
+
+// Route::get('/surat/kirim/{suratId}', [SuratController::class, 'kirimEmail'])->name('surat.kirim');
+// Route::post('/surat/{suratId}/kirim', [SuratController::class, 'kirimEmail'])->name('surat.kirim');
+
+
+Route::post('/surat/{suratId}/upload', [SuratController::class, 'uploadFile'])->name('surat.upload');
+Route::post('/surat/{suratId}/kirim', [SuratController::class, 'kirimEmail'])->name('surat.kirim');
